@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cake Cutting 🎂</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .cake-container {
+            position: relative;
+            width: 250px;
+            height: 200px;
+        }
+
+        .cake {
+            width: 250px;
+            height: 120px;
+            background: #ffcc99;
+            border-radius: 10px;
+            position: absolute;
+            top: 50px;
+            box-shadow: 0px 5px 0px #d98859;
+        }
+
+        .top-layer {
+            background: #ff9966;
+            height: 20px;
+            position: absolute;
+            top: 30px;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .cut {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            transition: transform 1.5s ease-in-out;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        /* Knife Animation */
+        .knife {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            width: 120px;
+            height: 20px;
+            background: silver;
+            transform: rotate(-45deg);
+            transition: transform 1.5s ease-in-out;
+        }
+
+        .knife::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 50px;
+            background: brown;
+            right: -10px;
+            top: 10px;
+        }
+
+        /* Candle */
+        .candle {
+            width: 10px;
+            height: 40px;
+            background: red;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .flame {
+            width: 12px;
+            height: 20px;
+            background: orange;
+            border-radius: 50%;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: flicker 1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; transform: translateX(-50%) scale(1); }
+            100% { opacity: 0.7; transform: translateX(-50%) scale(1.1); }
+        }
+
+        /* Cutting Animation */
+        .cutting .knife {
+            transform: translateY(90px) rotate(-45deg);
+        }
+
+        .cutting .left {
+            transform: translateX(-60px) rotate(-15deg);
+        }
+
+        .cutting .right {
+            transform: translateX(60px) rotate(15deg);
+        }
+
+        /* Button */
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background: white;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>🎂 Time to Cut the Cake! 🎉</h1>
+    <p class="lead">Click the button to cut the cake! 🍰</p>
+
+    <div class="cake-container" id="cakeBox">
+        <div class="knife"></div>
+        <div class="cake">
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+            <div class="top-layer"></div>
+            <div class="cut left"></div>
+            <div class="cut right"></div>
+        </div>
+    </div>
+
+    <button class="btn" onclick="cutCake()">🍴 Cut Cake</button>
+    <br><br>
+    <a href="song.html" class="btn">Next: 🎶 Birthday Song</a>
+
+    <script>
+        function cutCake() {
+            document.getElementById("cakeBox").classList.add("cutting");
+        }
+    </script>
+
+</body>
+</html>

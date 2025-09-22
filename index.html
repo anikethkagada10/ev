@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎂</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            background: red;
+            border-radius: 50%;
+            animation: floatUp 6s infinite ease-in-out;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: black;
+            bottom: -50px;
+            left: 50%;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(1); opacity: 1; }
+            100% { transform: translateY(-20vh) scale(1.1); opacity: 0; }
+        }
+
+        .balloon:nth-child(1) { background: #ff4d4d; left: 10%; animation-duration: 6s; }
+        .balloon:nth-child(2) { background: #ffcc00; left: 30%; animation-duration: 7s; }
+        .balloon:nth-child(3) { background: #66ccff; left: 50%; animation-duration: 5.5s; }
+        .balloon:nth-child(4) { background: #ff66ff; left: 70%; animation-duration: 6.5s; }
+        .balloon:nth-child(5) { background: #33cc33; left: 90%; animation-duration: 7.5s; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-white">🎈 Happy Birthday, evelyn . 🎂</h1>
+        <p class="lead text-white">Wishing you a day filled with love, joy, and laughter!</p>
+        <a href="cakes.html" class="btn btn-light">Next: 🎂 Cakes</a>
+    </div>
+
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+
+</body>
+</html>
